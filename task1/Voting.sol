@@ -2,27 +2,30 @@
 pragma solidity ^0.8;
 
 contract Voting {
-    struct Voter {
-        uint256 weight; // 权重（拥有的票数）
-        bool voted;  // 是否已经投票
-        address delegate; // t投票人地址
-        uint8 candidateId; // 投给的候选人编号
+    // 一个mapping来存储候选人的得票数
+    mapping(uint256 personId => uint256 votes) public votesReceived; // mapping variable here
+
+    uint256[] public candidates;
+
+    constructor(uint256[] memory _canditateArry) {
+        candidates = _canditateArry;
     }
-    struct candidate {
-        string name;
-        uint8 id;
-        uint256 votes;
-    }
-    mapping(address => uint256 ) public votesReceived; // mapping variable here
     
-    function vote(address sender, uint256 voteCount) public {
-        votesReceived[sender] += voteCount;
+    // constructor
+    // 允许用户投票给某个候选人
+    function vote(uint256 candidateId) public {
+        
+        votesReceived[candidateId] += 1;
     }
 
-    function getVotes() public {}
+    function getVotes(uint256 candidateId) public view returns (uint256) {
+        return votesReceived[candidateId];
+    }
 
     function resetVotes() public {
-        votesReceived.clear();
+        for (uint i=0; i < candidates.length; i++) {
+            candidates[i] = 0;
+        }
     }
 
 
