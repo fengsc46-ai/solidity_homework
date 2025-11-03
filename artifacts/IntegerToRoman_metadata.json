@@ -4,7 +4,65 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "num",
+						"type": "uint256"
+					}
+				],
+				"name": "intToRoman",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "symbols",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "values",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -13,6 +71,7 @@
 		"userdoc": {
 			"kind": "user",
 			"methods": {},
+			"notice": "罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。 字符          数值 I             1 V             5 X             10 L             50 C             100 D             500 M             1000 uint[] public values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]; string[] public symbols = [\"M\", \"CM\", \"D\", \"CD\", \"C\", \"XC\", \"L\", \"XL\", \"X\", \"IX\", \"V\", \"IV\", \"I\"];*",
 			"version": 1
 		}
 	},
@@ -33,11 +92,11 @@
 	},
 	"sources": {
 		"task1/IntegerToRoman.sol": {
-			"keccak256": "0xc1304026d175914f2be4f5669fa305f0d78c0817e0fe52692a958ba2dc03fea5",
+			"keccak256": "0xdceea2553132228564b83fcf168e2ac78b290efcf9d8330ed244304b9ec5bab6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://103f246a271b055b32069f44820b6c6bbcc49845ce13222789cfa6e420efc4b0",
-				"dweb:/ipfs/QmZarfqukVpAsxBdCs48vEYGj1mx41qgh69fTkDLJqT6r3"
+				"bzz-raw://2f57717e3683ab8326d5671947f6272f5fc67c94725eee055b394b38bf654bda",
+				"dweb:/ipfs/QmXmuufgfrH9scE52ZHvjSHrj3ehc4pCwHKFYFyndajHGx"
 			]
 		}
 	},

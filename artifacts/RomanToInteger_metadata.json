@@ -1,0 +1,102 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "s",
+						"type": "string"
+					}
+				],
+				"name": "romanToInt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "romanToIntMap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"romanToInt(string)": {
+					"params": {
+						"s": "输入的罗马数字字符串，比如 \"MCMXCIV\""
+					},
+					"returns": {
+						"_0": "对应的整数值"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"romanToInt(string)": {
+					"notice": "将罗马数字字符串转换为整数"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"task1/RomanToInteger.sol": "RomanToInteger"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"task1/RomanToInteger.sol": {
+			"keccak256": "0x0c02111cfd04cfc0097729b1cd974f4b665bbdba3573a5b8c0af6fd64f06fa70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8d247f4c05f5b8c5088abf30b342ff2fac7c3757ac5cee00ad518033f3dab290",
+				"dweb:/ipfs/QmZBmLQUCt9XPbAyKrxgobxQGLLzWPY7KbKATJU2rpxoKX"
+			]
+		}
+	},
+	"version": 1
+}
