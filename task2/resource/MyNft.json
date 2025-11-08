@@ -1,0 +1,11 @@
+{
+  "name": "My First NFT",
+  "description": "Friendly OpenSea Creature that enjoys long swims in the ocean.", 
+  "image": "https://ipfs.io/ipfs/bafkreif72oyueowz3rwtf6o2bqeuj3s2hxh7m5ffgmkuvclqoxchinfx24", 
+   "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Digital Art"
+    }
+  ]
+}

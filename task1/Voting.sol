@@ -25,6 +25,7 @@ contract Voting {
     function resetVotes() public {
         for (uint i=0; i < candidates.length; i++) {
             candidates[i] = 0;
+            votesReceived[candidates[i]] = 0;
         }
     }
 
