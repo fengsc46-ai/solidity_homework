@@ -2,11 +2,8 @@
 pragma solidity 0.8;
 
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-contract NftAuction is Initializable, UUPSUpgradeable {
+contract NftAuctionV2 is Initializable {
     struct Auction {
         address seller;
         uint256 startTime;
@@ -38,10 +35,8 @@ contract NftAuction is Initializable, UUPSUpgradeable {
 
     function createAuction(uint256 _duration, uint256 _startPrice, address _nftAddress, uint256 _tokenId) public {
         require(msg.sender == admin, "only admin can create auction");
-        require(_duration > 20, "duration should be greater than 20s");
+        require(_duration > 1000 * 60, "duration should be greater than 1 minute");
         require(_startPrice > 0, "start price should be greater than 0");
-        // 转移NFT到合约地址
-        IERC721(_nftAddress).approve(address(this), _tokenId);
         auctions[nextAuctionId] = Auction(
             msg.sender, 
             block.timestamp, 
@@ -69,23 +64,8 @@ contract NftAuction is Initializable, UUPSUpgradeable {
         auction.highestBidder = msg.sender;
     }
 
-    // 结束拍卖
-    function endAuction(uint256 _auctionId) public {
-        Auction storage auction = auctions[_auctionId];
-        require(!auction.isActive && block.timestamp >= auction.startTime + auction.duration, "auction is still ongoing");
+    function testHello() public pure returns (string memory) {
+        return "Hello, this is NftAuctionV2!";
 
-        // 如果有出价，转移NFT给最高出价者，转移资金给卖家
-        if (auction.highestBidder != address(0)) {
-            IERC721(auction.nftAddress).transferFrom(address(this), auction.highestBidder, auction.tokenId);
-        } else {
-            // 如果没有出价，NFT退还给卖家
-            IERC721(auction.nftAddress).transferFrom(address(this), auction.seller, auction.tokenId);
-        }
-        auction.isActive = true;
-    }
-
-    function _authorizeUpgrade(address) internal view override {
-        // 只有管理员可以升级合约
-        require(msg.sender == admin, "Only admin can upgrade");
     }
 }
